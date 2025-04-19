@@ -5,9 +5,11 @@ const userService = new UserService();
 const create = async (req, res) => {
   try {
     const response = await userService.create({
+      empcode: req.body.empcode,
       fullname: req.body.fullname,
       mobileno: req.body.mobileno,
       password: req.body.password,
+      designation: req.body.designation,
       division: req.body.division,
     });
     return res.status(201).json({
@@ -27,6 +29,29 @@ const create = async (req, res) => {
   }
 };
 
+const signIn = async (req, res) => {
+  try {
+    const response = await userService.signIn(
+      req.body.mobileno,
+      req.body.password
+    );
+    return res.status(200).json({
+      success: true,
+      message: "Successfully Signed in",
+      data: response,
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Something went wrong",
+      data: {},
+      success: false,
+      err: error,
+    });
+  }
+};
 module.exports = {
   create,
+  signIn,
 };

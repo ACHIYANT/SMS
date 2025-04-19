@@ -34,6 +34,20 @@ class UserRepository {
       throw error;
     }
   }
+
+  async getByMobileNo(userMobileNo) {
+    try {
+      const user = await User.findOne({
+        where: {
+          mobileno: userMobileNo,
+        },
+      });
+      return user;
+    } catch (error) {
+      console.log("Something went wrong on repository layer");
+      throw error;
+    }
+  }
 }
 
 module.exports = UserRepository;
