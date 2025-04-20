@@ -1,5 +1,5 @@
 const validateUserAuth = (req, res, next) => {
-  if (!req.body.mobileno || req.body.password) {
+  if (!req.body.mobileno || !req.body.password) {
     return res.status(400).json({
       success: false,
       data: {},
@@ -9,6 +9,7 @@ const validateUserAuth = (req, res, next) => {
   }
   next();
 };
+
 module.exports = {
   validateUserAuth,
 };
