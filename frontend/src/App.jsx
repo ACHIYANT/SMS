@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ResetPassword from "./pages/ResetPawword";
@@ -13,10 +13,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="login" element={<Login />}></Route>
         <Route path="sign-up" element={<Signup />}></Route>
         <Route path="reset-pwd" element={<ResetPassword />}></Route>
+        <Route path="/homepage" element={<Homepage />} />
         <Route path="vendors-entry" element={<VendorsForm />}></Route>
         <Route
           path="day-book-entry-first-step"

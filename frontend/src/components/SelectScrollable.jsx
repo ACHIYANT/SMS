@@ -10,10 +10,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export function SelectScrollable() {
+export function SelectScrollable({ division, setDivision }) {
   return (
     <div className="w-full flex flex-col">
-      <Select className="w-full">
+      <Select value={division} onValueChange={setDivision} className="w-full">
         <SelectTrigger className=" px-6">
           <SelectValue className="" placeholder="Select your division" />
         </SelectTrigger>
