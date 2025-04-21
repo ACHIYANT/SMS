@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-
+const cors = require("cors");
+app.use(cors());
 const { PORT } = require("./config/serverConfig");
 const apiRoutes = require("./routes/index");
 const bodyParser = require("body-parser");
@@ -23,15 +24,15 @@ const prepareAndStartServer = () => {
       db.sequelize.sync({ alter: true });
     }
 
-    const u1 = await User.findByPk(4);
-    const r1 = await Role.findByPk(1);
-    u1.addRole(r1);
+    // const u1 = await User.findByPk(4);
+    // const r1 = await Role.findByPk(1);
+    // u1.addRole(r1);
 
-    const r2 = await Role.findByPk(2);
-    u1.addRole(r2);
+    // const r2 = await Role.findByPk(2);
+    // u1.addRole(r2);
 
-    const response = await  u1.getRoles();
-    console.log(response);
+    // const response = await  u1.getRoles();
+    // console.log(r .esponse);
     // const repo = new UserRepository();
     // const response = await repo.getById(3);
     // console.log(response);

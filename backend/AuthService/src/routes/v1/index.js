@@ -11,13 +11,16 @@ router.post(
   UserController.create
 );
 router.post(
-	"/signin", 
-	AuthRequestValidator.validateUserAuth,
-	UserController.signIn
+  "/signin",
+  AuthRequestValidator.validateUserAuth,
+  UserController.signIn
 );
+router.get("/isAuthenticated", UserController.isAuthenticated);
+
 router.get(
-	"/isAuthenticated",
-	UserController.isAuthenticated,
+  "/isAdmin",
+  AuthRequestValidator.validateIsAdminRequest,
+  UserController.isAdmin
 );
 
 module.exports = router;
