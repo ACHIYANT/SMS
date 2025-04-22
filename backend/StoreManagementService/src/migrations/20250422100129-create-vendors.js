@@ -6,7 +6,7 @@ const { sequelize } = require('../models');
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Vendors', {
-      vendorid: {
+      vendor_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -36,7 +36,7 @@ module.exports = {
           },
         },
       },
-      gst: {
+      gst_no: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
@@ -48,7 +48,7 @@ module.exports = {
           },
         },
       },
-      mobileno: {
+      mobile_no: {
         type: Sequelize.STRING,
         unique: true,
         allowNull: false,

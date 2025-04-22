@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      gst: {
+      gst_no: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -45,11 +45,11 @@ module.exports = (sequelize, DataTypes) => {
           len: [14, 14],
           is: {
             args: /^[A-Z0-9]+$/,
-            msg: "Only Capital letters and digits are allowed.",
+            msg: "Only Capital letters and digits are allowed and only 14 digits.",
           },
         },
       },
-      mobileno: {
+      mobile_no: {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
