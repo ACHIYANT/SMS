@@ -1,24 +1,51 @@
 // ! Repository folder is to have the interactions with the model and database.
-import { Vendors } from "../models/index";
+import { where } from "sequelize";
+import { Vendor } from "../models/index";
 
 class VendorRepository {
-  async createVendor({ name, address, gst_no, mobile_no }) {
+  async createVendor(data) {
     try {
-      const vendor = await Vendors.create({ name, address, gst_no, mobile_no });
+      const vendor = await Vendor.create(data);
       return vendor;
     } catch (error) {
+      console.log("Something went wrong in the repository layer.");
       throw { error };
     }
   }
 
-  async deleteVendor({ vendor_id }) {
+  async deleteVendor(vendorId) {
     try {
-      await Vendors.destroy({
+      await Vendor.destroy({
         where: {
-          id: vendor_id,
+          id: vendorId,
+        },
+      });
+      return true;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer.");
+      throw { error };
+    }
+  }
+
+  async updateVendor(vendorId, data) {
+    try {
+      const vendor = await Vendor.update(data, {
+        where: {
+          vendor_id: vendorId,
         },
       });
     } catch (error) {
+      console.log("Something went wrong in the repository layer.");
+      throw { error };
+    }
+  }
+
+  async getVendor(vendorId) {
+    try {
+      const vendor = await Vendor.findByPk(vendorId);
+      return vendor;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer.");
       throw { error };
     }
   }
