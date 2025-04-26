@@ -40,9 +40,14 @@ class VendorRepository {
     }
   }
 
-  async getVendor(vendorId) {
+  async getVendor(gstNumber) {
     try {
-      const vendor = await Vendor.findByPk(vendorId);
+      //   const vendor = await Vendor.findByPk(vendorId);
+      const vendor = await Vendor.findOne({
+        where: {
+          gst_no: gstNumber, // 'gst' should match the column name in your model
+        },
+      });
       return vendor;
     } catch (error) {
       console.log("Something went wrong in the repository layer.");

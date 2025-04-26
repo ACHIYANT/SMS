@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       gst_no: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           notEmpty: true,
           len: [14, 14],
