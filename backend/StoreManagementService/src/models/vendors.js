@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Vendors.init(
     {
+      // vendor_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   autoIncrement: true,
+      //   primaryKey: true,
+      // },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -30,11 +36,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notEmpty: true,
-          len: [3, 20],
-          is: {
-            args: /^[A-Za-z]+(?: [A-Za-z]+)*$/,
-            msg: "Only letters and single spaces are allowed. No leading/trailing/multiple spaces.",
-          },
+          len: [3, 300],
+          // is: {
+          //   args: /^[A-Za-z]+(?: [A-Za-z]+)*$/,
+          //   msg: "Only letters and single spaces are allowed. No leading/trailing/multiple spaces.",
+          // },
         },
       },
       gst_no: {

@@ -1,3 +1,3 @@
 module.exports = {
-	Vendor: require('./vendor-repository'),
+	VendorRepository: require('./vendor-repository'),
 }

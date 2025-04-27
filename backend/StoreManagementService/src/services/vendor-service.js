@@ -1,4 +1,5 @@
-import { VendorRepository } from "../repository/index";
+// import { VendorRepository } from "../repository/index";
+const { VendorRepository } = require("../repository/index");
 
 class VendorService {
   constructor() {
@@ -17,7 +18,7 @@ class VendorService {
 
   async deleteVendor(vendorId) {
     try {
-      const response = this.vendorRepository.deleteVendor(vendorId);
+      const response = await this.vendorRepository.deleteVendor(vendorId);
       return response;
     } catch (error) {
       console.log("Something went wrong at service layer.");
@@ -25,9 +26,10 @@ class VendorService {
     }
   }
 
-  async updateVendor(vendor_id, data) {
+  async updateVendor(vendorId, data) {
     try {
-      const vendor = await this.vendorRepository.updateVendor(vendor_id, data);
+      const vendor = await this.vendorRepository.updateVendor(vendorId, data);
+	  console.log("service Layer : ", vendor);
       return vendor;
     } catch (error) {
       console.log("Something went wrong at service layer.");
@@ -45,3 +47,5 @@ class VendorService {
     }
   }
 }
+
+module.exports = VendorService;
