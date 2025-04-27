@@ -3,7 +3,7 @@
 // import { Vendor } from "../models/index";
 
 const { Vendors } = require("../models/index");
-
+const {Op} = require("sequelize");
 class VendorRepository {
   async createVendor(data) {
     try {
@@ -76,6 +76,22 @@ class VendorRepository {
       console.log("Something went wrong in the repository layer.");
       throw { error };
     }
+  }
+
+  async searchVendorByName(name) {
+	try {
+		const vendors = await Vendors.findAll({
+			where: {
+			  name: {
+				[Op.like]: `%${name}%`, // Partial match
+			  },
+			},
+		  });
+		  return vendors;
+	} catch (error) {
+		console.log("Something went wrong in the repository layer.");
+		throw { error };
+	  }
   }
 }
 

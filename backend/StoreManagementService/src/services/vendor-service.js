@@ -47,15 +47,24 @@ class VendorService {
     }
   }
 
-  async getAllVendors()
-  {
-	try {
-		const vendors = await this.vendorRepository.getAllVendors();
-		return vendors;
-	} catch (error) {
-		console.log("Something went wrong at service layer.");
-		throw { error };
-	  }
+  async getAllVendors() {
+    try {
+      const vendors = await this.vendorRepository.getAllVendors();
+      return vendors;
+    } catch (error) {
+      console.log("Something went wrong at service layer.");
+      throw { error };
+    }
+  }
+
+  async searchVendorByName(name) {
+    try {
+      const vendors = await this.vendorRepository.searchVendorByName(name);
+      return vendors;
+    } catch (error) {
+      console.log("Something went wrong at service layer.");
+      throw { error };
+    }
   }
 }
 

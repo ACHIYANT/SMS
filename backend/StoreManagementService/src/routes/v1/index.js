@@ -4,8 +4,10 @@ const VendorController = require("../../controllers/vendor-controller");
 const router = express.Router();
 
 router.post("/vendor", VendorController.create);
-router.delete("/vendor/:id",VendorController.destroy);
+router.delete("/vendor/:id", VendorController.destroy);
+router.get("/vendor/search", VendorController.searchVendorByName);
 router.get("/vendor/:id", VendorController.get);
 router.patch("/vendor/:id", VendorController.update);
-router.get("/vendor",VendorController.getAll);
+router.get("/vendor", VendorController.getAll);
+
 module.exports = router;
