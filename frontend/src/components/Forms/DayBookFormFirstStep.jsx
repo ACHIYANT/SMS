@@ -23,9 +23,9 @@ const DayBookFormFirstStep = ({ vendors = [], onSubmit }) => {
 
   return (
     <div className="flex flex-col justify-center">
-      <div>
+      {/* <div>
         <NavBar />
-      </div>
+      </div> */}
 
       <div className="min-h-screenbg-gray-100 p-20 justify-items-center">
         {step === 1 && (

@@ -93,7 +93,7 @@ const DayBookForm = ({ vendors = [], onSubmit, defaultType }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <Label>Type</Label>
-            <Label>{defaultType}</Label>
+            <Input name="default_type" value={defaultType} read-only disabled />
             {/* <SelectTrigger className={errors.type ? "border-red-500" : ""}>
               <SelectValue placeholder="Select Type" />
             </SelectTrigger>

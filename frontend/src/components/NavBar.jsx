@@ -72,7 +72,7 @@ export default function NavBar() {
     <div className="flex flex-col bg-card">
       <div className="flex h-fit items-center">
         <div className="flex justify-self-start  h-fit p-2">
-          <a href="/">
+          <a href="/homepage">
             <img src={logo} alt="" href="/" />
           </a>
           <div className="border-l-2 border-solid border-gray-200 h-content ml-2"></div>
@@ -83,21 +83,21 @@ export default function NavBar() {
 			<div>MRN</div>
 			<div>Stock Entry</div>
 			<div>Issue</div> */}
-          <NavBarMiddleItem
+          {/* <NavBarMiddleItem
             mainHeading={"Master Entry"}
             data={masterEntryData}
-          />
-          <NavBarMiddleItem
+          /> */}
+          {/* <NavBarMiddleItem
             mainHeading={"Day Book Entry"}
             data={dayBookEntryData}
-          />
-          <NavBarMiddleItem mainHeading={"Stock Entry"} data={stockEntryData} />
+          /> */}
+          {/* <NavBarMiddleItem mainHeading={"Stock Entry"} data={stockEntryData} /> */}
         </div>
         <div className="flex flex-col gap-2 justify-self-center p-4">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <Avatar />
             <p>{userName}</p>
-          </div>
+          </div> */}
           <div className="flex items-center gap-6 cursor-pointer">
             <ExitIcon />
             <button className="cursor-pointer" onClick={handleLogout}>
