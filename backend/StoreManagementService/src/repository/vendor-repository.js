@@ -46,7 +46,6 @@ class VendorRepository {
       }
 
       const updatedVendor = await Vendors.findByPk(vendorId);
-      console.log("Repo Layer : ", updatedVendor);
       return updatedVendor;
     } catch (error) {
       console.log("Something went wrong in the repository layer.");
@@ -63,6 +62,16 @@ class VendorRepository {
         },
       });
       return vendor;
+    } catch (error) {
+      console.log("Something went wrong in the repository layer.");
+      throw { error };
+    }
+  }
+
+  async getAllVendors() {
+    try {
+      const vendors = await Vendors.findAll();
+      return vendors;
     } catch (error) {
       console.log("Something went wrong in the repository layer.");
       throw { error };

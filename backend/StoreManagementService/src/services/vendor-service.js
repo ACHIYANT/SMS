@@ -29,7 +29,7 @@ class VendorService {
   async updateVendor(vendorId, data) {
     try {
       const vendor = await this.vendorRepository.updateVendor(vendorId, data);
-	  console.log("service Layer : ", vendor);
+
       return vendor;
     } catch (error) {
       console.log("Something went wrong at service layer.");
@@ -45,6 +45,17 @@ class VendorService {
       console.log("Something went wrong at service layer.");
       throw { error };
     }
+  }
+
+  async getAllVendors()
+  {
+	try {
+		const vendors = await this.vendorRepository.getAllVendors();
+		return vendors;
+	} catch (error) {
+		console.log("Something went wrong at service layer.");
+		throw { error };
+	  }
   }
 }
 

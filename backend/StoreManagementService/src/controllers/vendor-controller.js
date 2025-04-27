@@ -66,7 +66,6 @@ const get = async (req, res) => {
 const update = async (req, res) => {
   try {
     const response = await vendorService.updateVendor(req.params.id, req.body);
-    console.log("Contorller Layer : ", req.params.id, req.body, response);
     return res.status(201).json({
       data: response,
       success: true,
@@ -84,9 +83,30 @@ const update = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  try {
+    const response = await vendorService.getAllVendors();
+    return res.status(201).json({
+      data: response,
+      success: true,
+      message: "Successfully updated a vendor",
+      err: {},
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      data: {},
+      success: false,
+      message: "Not able to fetch all vendors",
+      err: error,
+    });
+  }
+};
+
 module.exports = {
   create,
   destroy,
   get,
   update,
+  getAll,
 };
